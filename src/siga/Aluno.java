@@ -15,6 +15,7 @@ package siga;
 public class Aluno {
 
     // Atributos públicos: violação do encapsulamento.
+    // Como média e matricula são dados sensíveis, deve estar protegido com private e só acessar com get e set
     public String nome;
     public String matricula;
     public double media;
