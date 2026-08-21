@@ -16,10 +16,42 @@ public class Aluno {
 
     // Atributos públicos: violação do encapsulamento.
     // Como média e matricula são dados sensíveis, deve estar protegido com private e só acessar com get e set
-    public String nome;
-    public String matricula;
-    public double media;
-    public boolean ativo;
+    private String nome;
+    private String matricula;
+    private double media;
+    private boolean ativo;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public void setMedia (double media) {
+        if (media <=10 && media >=0) {
+          this.media = media;
+        }
+    }
     // Sem construtor: o objeto pode ser criado em estado incompleto/inconsistente.
 }
