@@ -7,10 +7,15 @@ package siga;
  * Na atividade da Aula 1, essa duplicação será eliminada com a criação de uma
  * superclasse comum (Pessoa), aplicando herança.
  */
-public class Professor {
+public class Professor extends Pessoa {
 
-    // Atributos públicos: mesma violação de encapsulamento da classe Aluno.
-    public String nome;
-    public String siape;
-    public boolean ativo;
+    public Professor(String nome, String registro, boolean ativo) {
+        super(nome, registro, ativo);
+    }
+
+   
+    @Override 
+    public String apresentar() {
+        return "Sou professor " + nome + " (Siape: " + registro + ")";
+    }
 }

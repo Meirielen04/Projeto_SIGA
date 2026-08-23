@@ -12,43 +12,22 @@ public class Main {
         System.out.println("=== SIGA - Sistema de Gestão Acadêmica Simplificado ===");
         System.out.println("Versão INICIAL (a ser refatorada na Aula 1)\n");
 
-        // Criação de um aluno. Como não há construtor, preenchemos campo a campo.
-        Aluno a1 = new Aluno();
-        a1.setNome("Maria Silva");
-        a1.setMatricula("2026001");
-        a1.setMedia(8.5);
-        a1.setAtivo(true);
+        Aluno a1 = new Aluno("Maria Silva", "2026001", true, 8.5);
 
-        // PROBLEMA 1: nada impede um estado inválido.
-        // A linha abaixo atribui uma média impossível, e o objeto aceita.
-        Aluno a2 = new Aluno();
-        a2.setNome("João Souza");
-        a2.setMatricula("2026002");
-        a2.setMedia(5);      // média inválida: não deveria ser permitida
-        a2.setAtivo(true);
+        Aluno a2 = new Aluno("João Souza", "2026002", true, 5);
 
         // PROBLEMA 2: o estado interno pode ser alterado por qualquer código,
         // sem nenhuma validação ou controle.
-        a1.setMedia(9.8);      // média maior que 10: também deveria ser impedida
+        a1.setMedia(9.8);      // Contém validação para não retornar media fora de 0 e 10
+        // a2.setMedia(15);       // Isso lançará uma excessão que interrompe a execução
 
-        imprimirAluno(a1);
-        imprimirAluno(a2);
+        Professor p1 = new Professor("Ana Pereira", "SP12345", true);
 
-        Professor p1 = new Professor();
-        p1.nome = "Ana Pereira";
-        p1.siape = "SP12345";
-        p1.ativo = true;
-        System.out.println("Professor: " + p1.nome + " (SIAPE " + p1.siape + ")");
+        System.out.println(p1.apresentar());
+        System.out.println(a1.apresentar());
+        System.out.println(a2.apresentar());
 
-        System.out.println("\nObserve que o programa aceitou médias inválidas (-5 e 15).");
-        System.out.println("Sua tarefa na Aula 1 é refatorar este código para impedir isso.");
     }
 
-    // Método utilitário para exibir os dados de um aluno.
-    private static void imprimirAluno(Aluno aluno) {
-        System.out.println("Aluno: " + aluno.getNome()
-                + " | Matrícula: " + aluno.getMatricula()
-                + " | Média: " + aluno.getMedia()
-                + " | Ativo: " + (aluno.getAtivo() ? "sim" : "não"));
-    }
+    
 }
